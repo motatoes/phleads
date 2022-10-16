@@ -202,7 +202,7 @@ app.get("/", async (req, res) => {
     phurl = `https://api.producthunt.com/v2/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code&scope=public+private`
     let session = req.session;
     console.log(session.user_id)
-    if (session.user_id) {
+    if (session.user_id !== undefined) {
         res.redirect("/posts")
     } else {
         // res.send(`<a href="${phurl}">auth with product hunt</a>`)    
@@ -240,7 +240,11 @@ app.get('/callback', async (req, res) => {
 
 app.get("/logout", async (req, res) => {
     req.session.destroy();
-    res.redirect('/');
+    res.redirect('/logout-success');
+})
+
+app.get("/logout-success", async (req, res) => {
+  res.send("<h2>You have been logged out successfully</h2>")
 })
 
 app.get("/posts", async (req, res) => {

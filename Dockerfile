@@ -3,7 +3,7 @@ FROM node:16
 COPY . .
 
 RUN npm install
-RUN npm i -g nodemon
+RUN npm install pm2 -g
 EXPOSE 3000
 
-CMD ["nodemon", "node", "server.js"]
+CMD ["pm2", "start", "server.js", "--no-daemon"]
