@@ -1,0 +1,28 @@
+{
+  "name": "phtweeps",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "express-hbs": "^2.4.0",
+    "express-session": "^1.17.3",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.0.0",
+    "hbs": "^4.2.0",
+    "i": "^0.3.7",
+    "json-2-csv": "^3.17.2",
+    "mongodb": "^4.9.1",
+    "npm": "^8.19.2",
+    "stripe": "^10.14.0"
+  },
+  "description": ""
+}

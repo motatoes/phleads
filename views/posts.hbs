@@ -1,0 +1,25 @@
+
+    <p>Welcome {{user.username}}, to get started, view data for one of your posts:</p>
+    <p><em>It takes a few moments to search for a post first time</em></p>
+    <!-- <ul> -->
+    <div class="row">
+        {{#each posts}}
+             <div class="col-md-4">
+                <!-- <li>{{this.node.name}} | <a href="/tweeps?post={{this.node.id}}">(see upvoters)</a> | (<a href="{{this.node.url}}" target="_blank">view post</a>)</li> -->
+                <div class="panel panel-primary">
+                  <div class="panel-heading"><h3 class="panel-title">🚀 {{this.node.name}}</h3></div>
+                  <div class="panel-body">
+                    <p>{{this.node.description}}</p>
+                    <p class="text-right">
+                        <a href="/tweeps?post={{this.node.id}}">(see upvoters)</a> | (<a href="{{this.node.url}}" target="_blank">view post</a>)
+                    </p>
+                    <p class="text-right">
+                        {{this.node.votesCount}} votes | {{this.node.commentsCount}} comments
+                    </p>
+                  </div>
+                </div>
+            </div>  
+        {{/each}}
+    </div>
+    <!-- </ul> -->
+

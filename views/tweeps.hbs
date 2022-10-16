@@ -1,0 +1,28 @@
+
+
+
+    <p>Out of {{totalVotersCount}} voters there are ~{{votersWithTwitterCount}} with twitter accounts connected</p>
+    <p>(Loading upvoters will take a while the first time)</p>
+    <table class="table table-striped">
+      <tr>
+        <th>name</th>
+        <th>twitter</th>
+        <th>username</th>
+      </tr>
+
+        {{#each voters}}
+          <tr>
+            <td>{{this.node.user.name}}</td>
+            <td>{{this.node.user.twitterUsername}}</td>
+            <td>{{this.node.user.username}}</td>
+          </tr>
+        {{/each}}
+    </table>
+
+    <div>
+
+    <a onclick="javascript:window.open('/export.csv?post={{post}}')" class="btn btn-primary btn-lg btn-block">Export Leads</a>
+      
+    </div>
+
+    <hr>
