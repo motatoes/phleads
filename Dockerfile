@@ -3,7 +3,7 @@ FROM node:16
 COPY . .
 
 RUN npm install
-
+RUN npm i -g nodemon
 EXPOSE 3000
 
-CMD ["node", "server.js"]
+CMD ["nodemon", "node", "server.js"]

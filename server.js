@@ -21,6 +21,7 @@ const client_secret = process.env.PH_CLIENT_SECRET
 const YOUR_DOMAIN = process.env.BACKEND_DOMAIN;
 const redirect_uri = `${YOUR_DOMAIN}/callback`
 const stripe = require('stripe')(process.env.STRIPE_SECRET);
+const stripe_product_id = process.env.STRIPE_PRODUCT_ID
 
 mongo_url= process.env.MONGO_URL
 
@@ -200,6 +201,7 @@ app.set('view engine', 'hbs');
 app.get("/", async (req, res) => {
     phurl = `https://api.producthunt.com/v2/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code&scope=public+private`
     let session = req.session;
+    console.log(session.user_id)
     if (session.user_id) {
         res.redirect("/posts")
     } else {
@@ -360,7 +362,7 @@ app.post('/create-checkout-session', async (req, res) => {
     line_items: [
       {
         // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-        price: 'price_1LtWPJHfV8WVQaHWE4PK5b6s',
+        price: stripe_product_id,
         quantity: 1,
       },
     ],
