@@ -203,7 +203,8 @@ app.get("/", async (req, res) => {
     if (session.user_id) {
         res.redirect("/posts")
     } else {
-        res.send(`<a href="${phurl}">auth with product hunt</a>`)    
+        // res.send(`<a href="${phurl}">auth with product hunt</a>`)    
+        res.redirect(phurl)
     }    
 })
 
